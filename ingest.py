@@ -4,7 +4,8 @@ import psycopg2
 with requests.get("http://127.0.0.1:5000/very_large_request/100000000", stream=True) as r:
 
     conn = psycopg2.connect(dbname="stream_test",
-                            user="postgres", password="postgres")
+                            user="[your db username]",
+                            password="[your db password]")
     cur = conn.cursor()
     sql = "INSERT INTO transactions (txid, uid, amount) VALUES (%s, %s, %s)"
 
